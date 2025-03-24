@@ -1,12 +1,15 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.jetbrains.compose.compiler)
 }
 
 android {
     namespace = "com.landomen.sample.foregroundservice14"
     compileSdk = 34
-
+    buildFeatures {
+        compose = true
+    }
     defaultConfig {
         applicationId = "com.landomen.sample.foregroundservice14"
         minSdk = 28
@@ -32,12 +35,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
-    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
